@@ -1,6 +1,11 @@
 import logo from "./logo.svg";
 import "./App.scss";
-
+import MyComponent from "./Example/MyComponent.js";
+/*
+ * 2 components: class vs function (function/arrow)
+ * JSX
+ */
+// const App = () => {
 function App() {
   return (
     <div className="App">
@@ -18,6 +23,8 @@ function App() {
         >
           Learn React
         </a>
+        <MyComponent />
+        {/* <MyComponent></MyComponent> // use for class when you have more child components*/}
       </header>
     </div>
   );
