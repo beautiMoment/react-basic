@@ -15,14 +15,14 @@ function App() {
           {/* Edit <code>src/App.js</code> and save to reload. */}
           Hello world with React.js
         </p>
-        <a
+        {/* <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
         <MyComponent />
         {/* <MyComponent></MyComponent> // use for class when you have more child components*/}
       </header>
