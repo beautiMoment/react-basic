@@ -5,6 +5,11 @@ class MyComponent extends React.Component {
   state = {
     firstName: "",
     lastName: "",
+    arrJobs: [
+      { id: "abcJob1", title: "Developers", salary: "500$" },
+      { id: "abcJob2", title: "Testers", salary: "290$" },
+      { id: "abcJob3", title: "Project Managers", salary: "1000$" },
+    ],
   };
   /* 
     function can return <html></html> (template)
@@ -56,7 +61,12 @@ class MyComponent extends React.Component {
             }}
           />
         </form>
-        <ChildComponent name="Nguyen" age={"22"} />
+        <ChildComponent
+          name={this.state.firstName}
+          age={"22"}
+          address={"Ha Noi"}
+          arrJobs={this.state.arrJobs}
+        />
         {/* props: property */}
       </>
     );
