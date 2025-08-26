@@ -15,7 +15,23 @@ class MyComponent extends React.Component {
     function can return <html></html> (template)
     JSX: =>return block  
   */
+  addNewJob = (job) => {
+    console.log(">>> check job from parent:", job);
+    // let currentJobs = this.state.arrJobs;
+    // currentJobs.push(job);
+    this.setState({
+      arrJobs: [...this.state.arrJobs, job],
+      // arrJobs: currentJobs
+    });
+  };
 
+  deleteAJob = (job) => {
+    let currentJobs = this.state.arrJobs;
+    currentJobs = currentJobs.filter((item) => item.id !== job.id);
+    this.setState({
+      arrJobs: currentJobs,
+    });
+  };
   render() {
     // re-render
     console.log("call render:", this.state);
@@ -23,9 +39,12 @@ class MyComponent extends React.Component {
     return (
       // code block React.Fragment (short cut)
       <>
-        <AddComponent />
+        <AddComponent addNewJob={this.addNewJob} />
 
-        <ChildComponent arrJobs={this.state.arrJobs} />
+        <ChildComponent
+          arrJobs={this.state.arrJobs}
+          deleteAJob={this.deleteAJob}
+        />
         {/* props: property */}
       </>
     );
