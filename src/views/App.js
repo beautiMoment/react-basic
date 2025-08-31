@@ -5,6 +5,13 @@ import ListTodo from "./Todos/ListTodo.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.min.css";
+
+import Nav from "./Nav/Nav.js";
+import Home from "./Example/Home.js";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+
+import ListUsers from "./Users/ListUsers.js";
+
 /*
  * 2 components: class vs function (function/arrow)
  * JSX
@@ -12,14 +19,13 @@ import "react-toastify/dist/ReactToastify.min.css";
 // const App = () => {
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {/* Edit <code>src/App.js</code> and save to reload. */}
-          Simple Todo Apps with React.js
-        </p>
-        {/* <a
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+
+          {/* <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
@@ -27,24 +33,41 @@ function App() {
         >
           Learn React
         </a> */}
-        {/* <MyComponent /> */}
-        <ListTodo />
-        {/* <MyComponent></MyComponent> // use for class when you have more child components*/}
-      </header>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        // transition={Bounce}
-      />
-    </div>
+          {/* <MyComponent /> */}
+          {/* <ListTodo /> */}
+
+          {/* <MyComponent></MyComponent> // use for class when you have more child components*/}
+
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/todo">
+              <ListTodo />
+            </Route>
+            <Route path="/about">
+              <MyComponent />
+            </Route>
+            <Route path="/user">
+              <ListUsers />
+            </Route>
+          </Switch>
+        </header>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          // transition={Bounce}
+        />
+      </div>
+    </BrowserRouter>
   );
 }
 
